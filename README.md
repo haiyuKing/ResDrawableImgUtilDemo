@@ -1,0 +1,2 @@
+# ResDrawableImgUtilDemo
+ResDrawableImgUtil【根据图片名称获取resID值或者Bitmap对象】
