@@ -3,7 +3,11 @@ package com.why.project.resdrawableimgutildemo.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+
 import com.why.project.resdrawableimgutildemo.R;
+
 import java.lang.reflect.Field;
 
 /**
@@ -66,9 +70,20 @@ public class ResDrawableImgUtil {
 	}
 
 	/**
+	 * 根据图片名称获取图片的Drawable
+	 * @param imgName 图片名称*/
+	public static Drawable getDrawableByImgName(Context context, String imgName){
+		//int imgResourceId = R.drawable.ic_launcher;//Eclipse写法
+		int imgResourceId = R.mipmap.ic_launcher;//Android Studio写法
+		imgResourceId = getResourceIdByIdentifier(context,imgName);
+		//解析资源文件夹下，id为resID的图片
+		return ContextCompat.getDrawable(context,imgResourceId);
+	}
+
+	/**
 	 * 根据图片名称获取图片的Bitmap
 	 * @param imgName 图片名称*/
-	public static Bitmap getDrawableByImgName(Context context, String imgName){
+	public static Bitmap getBitmapByImgName(Context context, String imgName){
 		//int imgResourceId = R.drawable.ic_launcher;//Eclipse写法
 		int imgResourceId = R.mipmap.ic_launcher;//Android Studio写法
 		imgResourceId = getResourceIdByIdentifier(context,imgName);
